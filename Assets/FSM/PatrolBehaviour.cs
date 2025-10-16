@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PatrolBehavior : StateMachineBehaviour
+public class PatrolBehaviour : StateMachineBehaviour
 {
     private NavMeshAgent agent;
     private FSMAIController controller;

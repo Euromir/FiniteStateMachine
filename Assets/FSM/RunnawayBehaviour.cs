@@ -1,39 +1,38 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class IdleBehavior : StateMachineBehaviour
+public class RunnawayBehaviour : StateMachineBehaviour
 {
     private NavMeshAgent agent;
-    private FSMAIController controller;
     private Animator anim;
-    private float transitionDelay = 3.0f;
+    private FSMAIController controller;
+    Transform safeLocation;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         controller = animator.GetComponentInParent<FSMAIController>();
         agent = controller.agent;
         anim = controller.anim;
-        agent.isStopped = true;
-        anim.SetTrigger("isIdle");
+        safeLocation = GameEnvironment.Singleton.safeLocation;
+        anim.SetTrigger("isRunning");
+        agent.isStopped = false;
+        agent.speed = 6;
+        agent.SetDestination(safeLocation.position);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("CanSeePlayer", controller.CanSeePlayer());
-        if (transitionDelay > 0)
+        if (agent.remainingDistance < 1)
         {
-            transitionDelay -= Time.deltaTime;
-            return;
+            animator.SetBool("IsInSafeHouse", true);
         }
         else
         {
-            animator.SetBool("IdleToPatrol", true);
+            animator.SetBool("IsInSafeHouse", false);
         }
     }
-
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        anim.ResetTrigger("isIdle");
-        transitionDelay = 3.0f;
+        anim.ResetTrigger("isRunning");
     }
 }
