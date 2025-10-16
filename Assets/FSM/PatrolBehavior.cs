@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PatrolBehavior : MonoBehaviour
+public class PatrolBehavior : StateMachineBehaviour
 {
     private NavMeshAgent agent;
     private FSMAIController controller;
@@ -17,7 +17,7 @@ public class PatrolBehavior : MonoBehaviour
         agent.isStopped = false;
 
         float lastDistance = Mathf.Infinity;
-        for (int i = 0; < i < GameEnvironment.Singleton.Checkpoints.Count; i++)
+        for (int i = 0; i < GameEnvironment.Singleton.Checkpoints.Count; i++)
         {
             float distance = Vector3.Distance(agent.gameObject.transform.position, GameEnvironment.Singleton.Checkpoints
                 [i].transform.position);
@@ -27,5 +27,6 @@ public class PatrolBehavior : MonoBehaviour
                 lastDistance = distance;
             }
         }
+        anim.SetTrigger("isWalking");
     }
 }

@@ -13,7 +13,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 4559705080836671567}
   - {fileID: -1727685577616551298}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -4742316106702631169}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -133,6 +134,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-4742316106702631169
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0626abc4ae0609442b579dcffc65dd75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PatrolBehavior
 --- !u!1107 &-3327772228587495098
 AnimatorStateMachine:
   serializedVersion: 6
@@ -147,7 +160,7 @@ AnimatorStateMachine:
     m_Position: {x: 120, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8508634797302140965}
-    m_Position: {x: 430, y: 30, z: 0}
+    m_Position: {x: 430, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8446983684610360050}
     m_Position: {x: 430, y: -50, z: 0}
@@ -180,7 +193,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -8213283334637821319}
   - {fileID: -1263042316310565759}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 1381771258471081842}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -349,6 +363,18 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &1381771258471081842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9749351386de22347964c180a66e702c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IdleBehavior
 --- !u!1101 &4559705080836671567
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
