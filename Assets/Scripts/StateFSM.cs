@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class StateFSM
 {
-    public enum STATE { IDLE, PATROL, PURSUE, ATTACK, DEAD, RUNAWAY };
+    public enum STATE { IDLE, PATROL, PURSUE, ATTACK, DEAD, RUNAWAY, DANCE };
     public enum EVENT { ENTER, UPDATE, EXIT  };
     public STATE state;
     public EVENT stage;

@@ -29,4 +29,20 @@ public class PatrolBehaviour : StateMachineBehaviour
         }
         anim.SetTrigger("isWalking");
     }
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (agent.remainingDistance < 1)
+        {
+            currentIndex = currentIndex >= GameEnvironment.Singleton.Checkpoints.Count - 1 ? 0 : currentIndex + 1;
+
+            agent.SetDestination(GameEnvironment.Singleton.Checkpoints[currentIndex].transform.position);
+        }
+        animator.SetBool("CanSeePlayer", controller.CanSeePlayer());
+        animator.SetBool("IsPlayerBehind", controller.IsPlayerBehind());
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        anim.ResetTrigger("isWalking");
+    }
 }

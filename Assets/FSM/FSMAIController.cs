@@ -7,7 +7,12 @@ public class FSMAIController : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public AudioSource audioSource;
-    public float visionDistance = 10.0f; public float visionAngle = 30.0f; public float attackDistance = 7.0f;
+    public AudioSource musicSource;
+
+    public float visionDistance = 10.0f;
+    public float visionAngle = 30.0f;
+    public float attackDistance = 7.0f;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();

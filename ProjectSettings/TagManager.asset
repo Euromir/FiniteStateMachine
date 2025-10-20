@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Checkpoint
   - Safe
+  - NPC
   layers:
   - Default
   - TransparentFX
